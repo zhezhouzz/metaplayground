@@ -1,0 +1,17 @@
+(env
+ (dev
+  (flags (:standard -w -32-35-27-33-26-64)))
+ (release
+  (flags (:standard -w -32-35-27-33-26-64))
+  (ocamlopt_flags (:standard -unsafe -noassert -inline 100))))
+
+(library
+ (name commands)
+ (libraries core core_unix.sys_unix language_utils
+ )
+ (modules
+   commands
+ )
+ (preprocess (pps ppx_inline_test ppx_assert ppx_jane))
+ (inline_tests)
+)

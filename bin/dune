@@ -1,6 +1,6 @@
 (executable
  (public_name metaplayground)
  (name main)
- (libraries metaplayground dynlink metaocaml)
- (flags (:standard "-open" "Codelib" "-open" "Runcode"))
+ (libraries core core_unix.command_unix commands)
+ (preprocess (pps ppx_jane))
 )
